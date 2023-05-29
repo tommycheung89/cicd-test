@@ -1,30 +1,60 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Introduction
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a backend application for the `KIN Food Hall` project.
+Check the [frontend](https://github.com/palo-it-hk/kin-food-hall-frontend) and [infrastructure](https://github.com/palo-it-hk/kin-food-hall-infrastructure) repositories for more information.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Tooling
 
-## Description
+## Code Formatting
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project uses [Prettier](https://prettier.io/) for code formatting. Make sure to install a Prettier [extension](https://prettier.io/docs/en/plugins.html) for your editor.
+
+## Code Linting
+
+This project uses [ESLint](https://eslint.org/) for code linting. Make sure to install an ESLint [extension](https://eslint.org/docs/user-guide/integrations) for your editor.
+
+## Node Version management
+
+This project uses [nvm](https://github.com/nvm-sh/nvm) for Node version managmeent. Make sure to [install NVM](https://github.com/nvm-sh/nvm#install--update-script) before running the project.
+
+# Getting Started
+
+## Install the correct Node version
+
+The required Node version is specified in the `.nvmrc` file. To install the correct Node version with NVM, run the following command:
+
+```bash
+nvm use
+```
+
+## Installing the dependencies
+
+This project uses [npm](https://www.npmjs.com/) as the package manager. To install the dependencies, run the following command:
+
+```bash
+npm install
+```
+
+# Running the project
+
+## Development
+
+```bash
+npm run start:dev
+```
+
+Open [http://localhost:8001](http://localhost:8001) with your browser to see the result. The page will reload when you make edits.
+
+### Production
+
+```bash
+npm run build
+npm run start
+```
+
+# Deployment
+
+TBD
 
 ## Installation
 
@@ -58,16 +88,10 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Invoke local lambda function
+modify the localLambdaTest.json file to test the response from different path in the controller
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+```bash
+# serverless invoke local --function functionName --path pathname#
+serverless invoke local --function main --path ./localLambdaTest.json
+```

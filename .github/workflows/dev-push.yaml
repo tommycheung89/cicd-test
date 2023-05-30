@@ -2,10 +2,11 @@ name: first-cicd-pipeline
 
 on: 
   push: 
-    branches: []
+    branches: 
+      - []
 
 jobs:
-  basic-setup:
+  run-test-on-push:
     name: initial setup
     runs-on: ubuntu-latest
     steps:
@@ -15,4 +16,9 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      
       

@@ -2,7 +2,7 @@ name: first-cicd-pipeline
 
 on: 
   push: 
-    - branches
+    branches: []
 
 jobs:
   run-on: ubuntu-latest

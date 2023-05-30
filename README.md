@@ -19,6 +19,10 @@ This project uses [nvm](https://github.com/nvm-sh/nvm) for Node version managmee
 
 # Getting Started
 
+## Create local, development and production environment
+
+Copy the `.env.example` file to the root folder and rename it to `.env.local`, `.env.development` and `.env.production`
+
 ## Install the correct Node version
 
 The required Node version is specified in the `.nvmrc` file. To install the correct Node version with NVM, run the following command:
@@ -86,12 +90,4 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
-```
-
-## Invoke local lambda function
-modify the localLambdaTest.json file to test the response from different path in the controller
-
-```bash
-# serverless invoke local --function functionName --path pathname#
-serverless invoke local --function main --path ./localLambdaTest.json
 ```

@@ -39,4 +39,4 @@ lerna-debug.log*
 .env.production
 .env.local
 
-/.serverless/**/*.zip
+.serverless

@@ -18,13 +18,14 @@ provider:
 
 custom:
   serverless-offline:
-    httpPort: 8000
+    httpPort: ${env:PORT}
     noPrependStageInUrl: true
 
 functions:
     main:
       handler: src/lambda.handler
       url: true
+      environment: ${file(./.env.${sls:stage})}
       events:
         - http: 
             method: any

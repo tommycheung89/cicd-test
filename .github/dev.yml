@@ -1,6 +1,8 @@
 name: first-cicd-pipeline
 
-on: push
+on: 
+  push: 
+    - branches
 
 jobs:
   run-on: ubuntu-latest

@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  NODE_ENV: development
 
 jobs:
   run-test-on-push:

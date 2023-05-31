@@ -1,8 +1,9 @@
 name: deploy-to-aws-on-pr-dev
 
 on: 
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
 
 env:
   NODE_ENV: development

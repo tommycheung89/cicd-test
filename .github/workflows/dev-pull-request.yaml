@@ -38,7 +38,7 @@ jobs:
       - name: severless deploy
         uses: serverless/github-action@v3.2
         with:
-          args: print --stage development
+          args: deploy
         env:
           DB_HOST: ${{ secrets.DB_HOST}}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD}}

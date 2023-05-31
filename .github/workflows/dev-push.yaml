@@ -3,7 +3,7 @@ name: first-cicd-pipeline
 on: 
   push: 
     branches: 
-      - '**'
+      - '!main'
 
 jobs:
   run-test-on-push:

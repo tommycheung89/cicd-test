@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 env:
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  NODE_ENV: development
 
 jobs:
   run-test-on-push:
@@ -18,18 +18,10 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
-      
-  check-env:
-    name: check-env
-    runs-on: ubuntu-latest
-    steps:
-      - name: run echon NODE_ENV
-      - uses: actions/setup-node@v3
-      - run: bash export NODE_ENV=development
-      - run: bash echo $PORT
-   
+     
   deploy:
     name: deploy
+    environment: development
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -45,8 +37,14 @@ jobs:
       - name: severless deploy
         uses: serverless/github-action@v3.2
         with:
-          args: print --stage development
+          args: deploy
         env:
+          DB_HOST: ${{ secrets.DB_HOST}}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD}}
+          DB_USERNAME: ${{ secrets.DB_USERNAME}}
+          DB_PORT: ${{ secrets.DB_PORT}}
+          DB_NAME: ${{ secrets.DB_NAME}}
+          PORT: ${{ secrets.PORT}}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       

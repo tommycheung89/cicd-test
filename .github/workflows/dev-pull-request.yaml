@@ -24,6 +24,8 @@ jobs:
     name: check-env
     runs-on: ubuntu-latest
     steps:
+      - name: run echon NODE_ENV
+      - uses: actions/setup-node@v3
       - run: bash export NODE_ENV=development
       - run: bash echo $PORT
    

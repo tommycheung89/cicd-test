@@ -23,6 +23,7 @@ custom:
 
 functions:
     main:
+      name: main-kin-food-hall-sls-lambda-function
       handler: src/lambda.handler
       url: true
       environment: 

@@ -1,8 +1,10 @@
 name: deploy-to-aws-on-pr-dev
 
 on: 
-  pull_request: 
-    branches: [main]
+  pull_request
+
+env:
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
 jobs:
   run-test-on-push:
@@ -15,9 +17,10 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
+      
   check-env:
     name: check-env
-    runs-on: bash
+    runs-on: ubuntu-latest
     steps:
       - name: run echon NODE_ENV
       - run: bash export NODE_ENV=development

@@ -26,12 +26,12 @@ functions:
       handler: src/lambda.handler
       url: true
       environment: 
-        - DB_HOST: ${env:DB_HOST}
-        - DB_PASSWORD: ${env:DB_PASSWORD}
-        - DB_USERNAME: ${env:DB_USERNAME}
-        - DB_PORT: ${env:DB_PORT}
-        - DB_NAME: ${env:DB_NAME}
-        - PORT: ${env:PORT}
+         DB_HOST: ${env:DB_HOST}
+         DB_PASSWORD: ${env:DB_PASSWORD}
+         DB_USERNAME: ${env:DB_USERNAME}
+         DB_PORT: ${env:DB_PORT}
+         DB_NAME: ${env:DB_NAME}
+         PORT: ${env:PORT}
       events:
         - http: 
             method: any

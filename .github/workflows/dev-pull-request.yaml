@@ -15,6 +15,14 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
+  check-env:
+    name: check-env
+    runs-on: bash
+    steps:
+      - name: run echon NODE_ENV
+      - run: bash export NODE_ENV=development
+      - run: bash echo $PORT
+   
   deploy:
     name: deploy
     runs-on: ubuntu-latest

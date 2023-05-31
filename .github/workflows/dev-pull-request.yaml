@@ -19,16 +19,7 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
-      
-  check-env:
-    name: check-env
-    runs-on: ubuntu-latest
-    steps:
-      - name: run echon NODE_ENV
-      - uses: actions/setup-node@v3
-      - run: bash export NODE_ENV=development
-      - run: bash echo $PORT
-   
+     
   deploy:
     name: deploy
     runs-on: ubuntu-latest
@@ -48,6 +39,12 @@ jobs:
         with:
           args: print --stage development
         env:
+          DB_HOST: ${{ vars.DB_HOST}}
+          DB_PASSWORD: ${{ vars.DB_PASSWORD}}
+          DB_USERNAME: ${{ vars.DB_USERNAME}}
+          DB_PORT: ${{ vars.DB_PORT}}
+          DB_NAME: ${{ vars.DB_NAME}}
+          PORT: ${{ vars.PORT}}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       

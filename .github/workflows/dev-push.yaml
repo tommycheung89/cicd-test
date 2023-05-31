@@ -5,6 +5,10 @@ on:
     branches: 
       - '**'
 
+env:
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
+
 jobs:
   run-test-on-push:
     name: initial setup
@@ -16,5 +20,14 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
+      
+  check-env:
+    name: check-env
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+      - run: bash export NODE_ENV=development
+      - run: bash echo $PORT
+
       
       

@@ -2,8 +2,7 @@ name: deploy-to-aws-on-pr-dev
 
 on: 
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 env:
   env_var: ${{ vars.ENV_CONTEXT_VAR }}

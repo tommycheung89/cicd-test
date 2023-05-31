@@ -16,9 +16,5 @@ jobs:
         node-version: 18
     - run: npm ci
     - run: npm test
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:
       
       
